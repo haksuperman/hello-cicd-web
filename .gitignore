@@ -1,0 +1,10 @@
+target/
+
+# IDE / OS
+.idea/
+*.iml
+.DS_Store
+
+# phase execution outputs
+phases/**/phase*-output.json
+phases/**/step*-output.json
