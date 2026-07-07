@@ -14,7 +14,7 @@ src/
 │   └── webapp/WEB-INF/views/          # index.jsp
 └── test/java/com/haksuperman/web/     # MockMvc 기반 컨트롤러 테스트
 Dockerfile                              # tomcat:9.0 + target/*.war 복사
-pom.xml                                 # packaging=war, finalName=hello-cicd-web
+pom.xml                                 # packaging=war, finalName=hello-world
 ```
 
 ## 패턴
