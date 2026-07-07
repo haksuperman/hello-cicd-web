@@ -2,9 +2,28 @@
   "project": "hello-cicd-web",
   "phase": "0-mvp",
   "steps": [
-    { "step": 0, "name": "project-setup", "status": "pending" },
-    { "step": 1, "name": "welcome-page", "status": "pending" },
-    { "step": 2, "name": "health-endpoint", "status": "pending" },
-    { "step": 3, "name": "docker-image", "status": "pending" }
-  ]
+    {
+      "step": 0,
+      "name": "project-setup",
+      "status": "completed",
+      "started_at": "2026-07-07T09:10:00+0900",
+      "summary": "Maven WAR 뼈대 생성 — pom.xml(Spring MVC 5.3.39, Java 11 타깃), WebInitializer, SpringConfig, logback.xml. Docker maven 빌드로 target/hello-cicd-web.war 산출 확인"
+    },
+    {
+      "step": 1,
+      "name": "welcome-page",
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "name": "health-endpoint",
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "name": "docker-image",
+      "status": "pending"
+    }
+  ],
+  "created_at": "2026-07-07T09:10:00+0900"
 }
