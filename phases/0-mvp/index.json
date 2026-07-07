@@ -21,7 +21,10 @@
     {
       "step": 2,
       "name": "health-endpoint",
-      "status": "pending"
+      "status": "completed",
+      "started_at": "2026-07-07T09:16:17+0900",
+      "summary": "/health 엔드포인트 구현 — HealthController(@ResponseBody, produces=application/json, 고정 문자열 {\"status\":\"UP\"} 반환, JSON 라이브러리 미사용), MockMvc standaloneSetup 테스트(200·JSON·UP 포함) 통과",
+      "completed_at": "2026-07-07T09:17:54+0900"
     },
     {
       "step": 3,
