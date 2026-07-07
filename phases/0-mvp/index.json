@@ -16,7 +16,7 @@
       "status": "completed",
       "started_at": "2026-07-07T09:13:18+0900",
       "summary": "홈 페이지 구현 — WelcomeController(/ → index.jsp, msg·today·version·buildTimestamp 모델), version.properties Maven 리소스 필터링(build.timestamp property 우회), MockMvc standaloneSetup 테스트 통과",
-      "completed_at": "2026-07-07T09:15:37+0900"
+      "completed_at": "2026-07-07T09:16:17+0900"
     },
     {
       "step": 2,
