@@ -1,0 +1,10 @@
+{
+  "project": "hello-cicd-web",
+  "phase": "0-mvp",
+  "steps": [
+    { "step": 0, "name": "project-setup", "status": "pending" },
+    { "step": 1, "name": "welcome-page", "status": "pending" },
+    { "step": 2, "name": "health-endpoint", "status": "pending" },
+    { "step": 3, "name": "docker-image", "status": "pending" }
+  ]
+}
