@@ -26,7 +26,7 @@ WAR 파일명 기준으로 컨텍스트 경로는 `/hello-world`입니다.
 
 ```bash
 # WAR 빌드 (산출물: target/hello-world.war)
-docker run --rm -v "$PWD":/app -v hello-cicd-web-m2:/root/.m2 -w /app maven:3.9-eclipse-temurin-21 mvn package
+docker run --rm -v "$PWD":/app -v hello-cicd-web-m2:/root/.m2 -w /app maven:3.9-eclipse-temurin-21 mvn clean compile package
 
 # 테스트
 docker run --rm -v "$PWD":/app -v hello-cicd-web-m2:/root/.m2 -w /app maven:3.9-eclipse-temurin-21 mvn test
@@ -38,13 +38,21 @@ docker run --rm -p 8080:8080 hello-cicd-web
 
 ### CI 환경 빌드 (Jenkins 등)
 
-CI 도구에서는 표준 Maven 명령을 그대로 사용합니다. 컴파일 → 테스트 → WAR 패키징(`target/hello-world.war`)이 한 번에 실행됩니다.
+컴파일 → 테스트 → WAR 패키징(`target/hello-world.war`)이 한 번에 실행됩니다. 빌드 에이전트에는 JDK 21 이상이 필요합니다.
 
-```bash
-mvn clean package
+**Jenkins Maven 전용 빌드 스텝** (Maven Project의 `Goals and options`, Freestyle의 `Invoke top-level Maven targets`) — Goals에는 `mvn` 없이 phase만 입력합니다:
+
+```text
+clean compile package
 ```
 
-단, 빌드 에이전트에 JDK 21 이상이 필요합니다.
+**Execute shell, Pipeline `sh`, 로컬 터미널** — 직접 실행할 때는 `mvn`을 붙입니다:
+
+```bash
+mvn clean compile package
+```
+
+> **주의**: Jenkins Maven Goals 입력칸에 `mvn clean package`처럼 `mvn`까지 넣으면 `Unknown lifecycle phase "mvn"` 오류가 발생합니다. Jenkins가 명령 앞에 `mvn`을 자동으로 붙이기 때문에, 입력한 `mvn`이 라이프사이클 phase 이름으로 해석되어 생기는 설정 문제입니다.
 
 ## 프로젝트 구조
 
