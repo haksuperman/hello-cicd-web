@@ -1,7 +1,6 @@
 # hello-cicd-web
 
 CI/CD 파이프라인(Jenkins · Docker · Kubernetes) 학습용 데모 웹 애플리케이션입니다.
-[joneconsulting/cicd-web-project](https://github.com/joneconsulting/cicd-web-project)와 동일한 빌드·배포 특성을 갖도록 만든 개인 실습용 레포입니다.
 
 ## 기술 스택
 
