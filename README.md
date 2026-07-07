@@ -20,6 +20,8 @@ WAR 파일명 기준으로 컨텍스트 경로는 `/hello-world`입니다.
 
 ## 빌드 & 실행
 
+### 로컬 빌드 (Docker)
+
 로컬에 JDK/Maven 설치 없이 Docker만으로 빌드·실행합니다.
 
 ```bash
@@ -34,7 +36,15 @@ docker build -t hello-cicd-web .
 docker run --rm -p 8080:8080 hello-cicd-web
 ```
 
-Jenkins 등 CI 환경에서 빌드할 경우 JDK 21 이상이 필요합니다.
+### CI 환경 빌드 (Jenkins 등)
+
+CI 도구에서는 표준 Maven 명령을 그대로 사용합니다. 컴파일 → 테스트 → WAR 패키징(`target/hello-world.war`)이 한 번에 실행됩니다.
+
+```bash
+mvn clean package
+```
+
+단, 빌드 에이전트에 JDK 21 이상이 필요합니다.
 
 ## 프로젝트 구조
 
