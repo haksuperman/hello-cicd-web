@@ -15,10 +15,10 @@
 **이유**: 로컬 머신에 Docker만 설치되어 있고, Jenkins 실습 환경도 컨테이너 기반이라 일관성이 있다.
 **트레이드오프**: 첫 빌드가 느리다(의존성 다운로드). IDE의 직접 빌드·디버깅 지원을 포기한다.
 
-### ADR-003: Java 11 바이트코드 타깃 (maven.compiler.release=11)
-**결정**: JDK 17로 빌드하되 바이트코드는 Java 11 타깃으로 컴파일한다.
-**이유**: `tomcat:9.0` 이미지(JDK 11+)와 강의에서 쓰는 Jenkins 서버 JDK(11 이상)에서 모두 동작한다. Spring 5.3은 Java 8~17을 지원한다.
-**트레이드오프**: Java 17 언어 기능(record, sealed 등)을 쓸 수 없다.
+### ADR-003: Java 21 바이트코드 타깃 (maven.compiler.release=21)
+**결정**: `maven:3.9-eclipse-temurin-21`로 빌드하고 바이트코드는 Java 21 타깃으로 컴파일한다. (최초 Java 11에서 2026-07-07 상향)
+**이유**: 최신 LTS 언어 기능(record 등)을 쓸 수 있다. 런타임인 `tomcat:9.0` 이미지는 JDK 25(Temurin)를 포함하므로 Java 21 클래스가 그대로 동작하며, Spring 5.3.x는 JDK 21까지 공식 지원한다.
+**트레이드오프**: 빌드 환경(Jenkins 에이전트 등)에 JDK 21 이상이 필요하다. 강의 실습 환경의 JDK가 낮으면 release를 낮추거나 Jenkins에 JDK 21을 설치해야 한다.
 
 ### ADR-004: 버전·빌드 시각은 Maven resource filtering으로 주입
 **결정**: `version.properties`에 `${project.version}`과 `${maven.build.timestamp}`를 필터링으로 주입하고, 컨트롤러가 읽어 홈 페이지에 표시한다.
