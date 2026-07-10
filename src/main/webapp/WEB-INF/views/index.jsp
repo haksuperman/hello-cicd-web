@@ -30,7 +30,6 @@
 </head>
 <body>
     <h1>${msg}</h1>
-    <h2>This is PollSCM testing. First code change.</h2>
     <p>오늘 날짜: ${today}</p>
     <table>
         <tr>
